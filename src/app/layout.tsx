@@ -7,6 +7,7 @@ import { SidebarProvider } from '@/components/ui/sidebar'
 import ContentLayout from './content-layout'
 import { ReasoningMessageProvider } from '@/components/toggle-reasoning-messages'
 import { DialogContextProvider } from '@/components/ui/agent-dialog'
+import { AuthProvider } from '@/context/AuthContext'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -35,15 +36,17 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
-          <DialogContextProvider>
-            <SidebarProvider>
-              <AgentDetailsProvider>
-                <ReasoningMessageProvider>
-                  <ContentLayout>{children}</ContentLayout>
-                </ReasoningMessageProvider>
-              </AgentDetailsProvider>
-            </SidebarProvider>
-          </DialogContextProvider>
+          <AuthProvider>
+            <DialogContextProvider>
+              <SidebarProvider>
+                <AgentDetailsProvider>
+                  <ReasoningMessageProvider>
+                    <ContentLayout>{children}</ContentLayout>
+                  </ReasoningMessageProvider>
+                </AgentDetailsProvider>
+              </SidebarProvider>
+            </DialogContextProvider>
+          </AuthProvider>
         </Providers>
       </body>
     </html>
