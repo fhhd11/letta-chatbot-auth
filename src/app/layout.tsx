@@ -16,9 +16,9 @@ const robotoMono = Roboto_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Letta Chatbot with Memory Template',
+  title: 'Умный чат-бот с памятью',
   description:
-    'An example chatbot application built on the Letta API, which makes each chatbot a stateful agent (agent with memory) under the hood.'
+    'Интеллектуальное приложение чат-бота с функцией долговременной памяти. Каждый агент сохраняет состояние и может обучаться в процессе общения.'
 }
 
 export default function RootLayout({

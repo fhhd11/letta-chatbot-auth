@@ -63,7 +63,7 @@ export default function ChatPage() {
   useEffect(() => {
     if (agentMessagesError) {
       toast.error(
-        'Failed to load agent messages. Please check your Letta server connection.'
+        'Не удалось загрузить сообщения агента. Пожалуйста, проверьте подключение к серверу.'
       );
     }
   }, [agentMessagesError]);

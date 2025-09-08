@@ -1,34 +1,34 @@
 export const DEFAULT_BOT_MESSAGE =
-  'Bootup sequence complete. Persona activated. Testing messaging functionality.'
-export const NO_MESSAGES_LABEL = 'Start a chat...'
+  'Последовательность загрузки завершена. Персона активирована. Тестирование функций обмена сообщениями.'
+export const NO_MESSAGES_LABEL = 'Начните диалог...'
 
 export const MESSAGE_POPOVER_DESCRIPTION =
-  "This is an open source chatbot template built using Letta. Each agent is stateful - so it has long-term memory (it can learn over time) and can be run indefinitely without context window overflow."
+  "Это умный чат-бот с памятью. Агент сохраняет состояние - у него есть долговременная память (он может учиться со временем) и может работать неограниченно долго без переполнения контекстного окна."
 export const suggestedChatActions = [
   {
-    title: 'Tell me about yourself',
-    description: 'Ask the chatbot about its persona',
-    action: 'Tell me about yourself'
+    title: 'Расскажи о себе',
+    description: 'Спросить у чат-бота о его личности',
+    action: 'Расскажи о себе'
   },
   {
-    title: 'What do you know about me?',
-    description: 'Ask the chatbot about its memory of you',
-    action: 'What do you know about me?'
+    title: 'Что ты знаешь обо мне?',
+    description: 'Спросить у чат-бота о его памяти о вас',
+    action: 'Что ты знаешь обо мне?'
   },
   {
-    title: 'Today was my birthday!',
-    description: 'Tell the chatbot something memorable',
+    title: 'Сегодня у меня был день рождения!',
+    description: 'Рассказать чат-боту что-то памятное',
     action:
-      'Today was my birthday! My mom Brenda made me chocolate cake, my favorite :D'
+      'Сегодня у меня был день рождения! Мама Ольга приготовила мне шоколадный торт, мой любимый :D'
   },
   {
-    title: 'Explain your memory system to me',
-    description: 'Ask the chatbot about its inner workings',
-    action: 'Explain your memory system to me'
+    title: 'Объясни мне свою систему памяти',
+    description: 'Спросить у чат-бота о его внутренних механизмах',
+    action: 'Объясни мне свою систему памяти'
   }
 ]
 
-export const TEXTBOX_PLACEHOLDER = 'Send a message...'
+export const TEXTBOX_PLACEHOLDER = 'Отправить сообщение...'
 
 export const ERROR_CONNECTING =
-  'Issue loading data. Please check your connection to the Letta Server.'
+  'Проблема загрузки данных. Пожалуйста, проверьте подключение к серверу.'

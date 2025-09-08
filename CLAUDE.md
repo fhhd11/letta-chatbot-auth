@@ -18,7 +18,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Architecture
 
-This is a **Letta chatbot template** built with Next.js 15+ that creates stateful AI agents with memory capabilities. The application uses Letta's API to manage conversational agents that can learn and remember across sessions.
+Это **шаблон умного чат-бота** построенный на Next.js 15+, который создает состояние-сохраняющих AI агентов с возможностями памяти. Приложение использует API для управления разговорными агентами, которые могут обучаться и запоминать между сессиями.
 
 ### Core Architecture Components
 

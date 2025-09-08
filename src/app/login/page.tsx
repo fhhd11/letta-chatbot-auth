@@ -31,7 +31,7 @@ export default function LoginPage() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
           <div className="animate-spin rounded-full h-16 w-16 border-4 border-purple-500/30 border-t-purple-500"></div>
-          <p className="text-white/70 font-mono text-sm">Loading...</p>
+          <p className="text-white/70 font-mono text-sm">Загрузка...</p>
         </div>
       </div>
     );
@@ -78,22 +78,22 @@ export default function LoginPage() {
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
             <div className="size-16 rounded-xl bg-gradient-to-br from-purple-600 via-pink-500 to-orange-500 flex items-center justify-center shadow-lg animate-pulse-glow">
-              <img src="/Subtract.svg" alt="Letta AI" className="w-8 h-8 brightness-0 invert drop-shadow-sm" />
+              <img src="/Subtract.svg" alt="Умный бот" className="w-8 h-8 brightness-0 invert drop-shadow-sm" />
             </div>
           </div>
-          <CardTitle className="text-3xl text-white font-mono mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Welcome Back</CardTitle>
+          <CardTitle className="text-3xl text-white font-mono mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Добро пожаловать</CardTitle>
           <CardDescription className="text-white/70 font-mono">
-            Sign in to your Letta chatbot account
+            Войдите в свой аккаунт чат-бота
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-white font-mono">Email</Label>
+              <Label htmlFor="email" className="text-white font-mono">Электронная почта</Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="✉️ Enter your email"
+                placeholder="✉️ Введите ваш email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -102,11 +102,11 @@ export default function LoginPage() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-white font-mono">Password</Label>
+              <Label htmlFor="password" className="text-white font-mono">Пароль</Label>
               <Input
                 id="password"
                 type="password"
-                placeholder="🔒 Enter your password"
+                placeholder="🔒 Введите ваш пароль"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -124,16 +124,16 @@ export default function LoginPage() {
               {isSubmitting ? (
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                  Signing in...
+                  Вхожу...
                 </div>
               ) : (
-                'Sign In ✨'
+                'Войти ✨'
               )}
             </Button>
             <p className="text-sm text-white/70 text-center font-mono">
-              Don't have an account?{' '}
+              Нет аккаунта?{' '}
               <Link href="/register" className="text-white hover:underline">
-                Sign up
+                Зарегистрироваться
               </Link>
             </p>
           </CardFooter>

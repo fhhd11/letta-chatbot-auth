@@ -33,7 +33,7 @@ export default function RegisterPage() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
           <div className="animate-spin rounded-full h-16 w-16 border-4 border-green-500/30 border-t-green-500"></div>
-          <p className="text-white/70 font-mono text-sm">Loading...</p>
+          <p className="text-white/70 font-mono text-sm">Загрузка...</p>
         </div>
       </div>
     );
@@ -50,12 +50,12 @@ export default function RegisterPage() {
     if (!name || !email || !password || !confirmPassword) return;
     
     if (password !== confirmPassword) {
-      alert('Passwords do not match');
+      alert('Пароли не совпадают');
       return;
     }
 
     if (password.length < 6) {
-      alert('Password must be at least 6 characters long');
+      alert('Пароль должен содержать не менее 6 символов');
       return;
     }
 
@@ -93,22 +93,22 @@ export default function RegisterPage() {
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
             <div className="size-16 rounded-xl bg-gradient-to-br from-green-600 via-blue-500 to-purple-500 flex items-center justify-center shadow-lg animate-pulse-glow">
-              <img src="/Subtract.svg" alt="Letta AI" className="w-8 h-8 brightness-0 invert drop-shadow-sm" />
+              <img src="/Subtract.svg" alt="Умный бот" className="w-8 h-8 brightness-0 invert drop-shadow-sm" />
             </div>
           </div>
-          <CardTitle className="text-3xl text-white font-mono mb-2 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">Create Account</CardTitle>
+          <CardTitle className="text-3xl text-white font-mono mb-2 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">Создать аккаунт</CardTitle>
           <CardDescription className="text-white/70 font-mono">
-            Sign up to get your personal Letta chatbot
+            Зарегистрируйтесь для получения персонального чат-бота
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="name" className="text-white font-mono">Full Name</Label>
+              <Label htmlFor="name" className="text-white font-mono">Полное имя</Label>
               <Input
                 id="name"
                 type="text"
-                placeholder="Enter your name"
+                placeholder="Введите ваше имя"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -117,11 +117,11 @@ export default function RegisterPage() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-white font-mono">Email</Label>
+              <Label htmlFor="email" className="text-white font-mono">Электронная почта</Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="Enter your email"
+                placeholder="Введите ваш email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -130,11 +130,11 @@ export default function RegisterPage() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-white font-mono">Password</Label>
+              <Label htmlFor="password" className="text-white font-mono">Пароль</Label>
               <Input
                 id="password"
                 type="password"
-                placeholder="Enter your password (min 6 characters)"
+                placeholder="Введите пароль (минимум 6 символов)"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -144,11 +144,11 @@ export default function RegisterPage() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword" className="text-white font-mono">Confirm Password</Label>
+              <Label htmlFor="confirmPassword" className="text-white font-mono">Подтвердите пароль</Label>
               <Input
                 id="confirmPassword"
                 type="password"
-                placeholder="Confirm your password"
+                placeholder="Подтвердите ваш пароль"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
@@ -156,7 +156,7 @@ export default function RegisterPage() {
                 className="bg-black/40 border-white/20 text-white placeholder:text-white/50 font-mono"
               />
               {confirmPassword && password !== confirmPassword && (
-                <p className="text-sm text-red-400 font-mono">Passwords do not match</p>
+                <p className="text-sm text-red-400 font-mono">Пароли не совпадают</p>
               )}
             </div>
           </CardContent>
@@ -169,16 +169,16 @@ export default function RegisterPage() {
               {isSubmitting ? (
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                  Creating account...
+                  Создаю аккаунт...
                 </div>
               ) : (
-                'Sign Up 🚀'
+                'Зарегистрироваться 🚀'
               )}
             </Button>
             <p className="text-sm text-white/70 text-center font-mono">
-              Already have an account?{' '}
+              Уже есть аккаунт?{' '}
               <Link href="/login" className="text-white hover:underline">
-                Sign in
+                Войти
               </Link>
             </p>
           </CardFooter>
