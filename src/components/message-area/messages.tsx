@@ -53,14 +53,14 @@ export const Messages = (props: MessagesProps) => {
 
   return (
     <div ref={messagesListRef} className='flex-1 overflow-y-auto'>
-      <div className='group/message mx-auto w-full max-w-3xl px-4 h-full'>
+      <div className='group/message mx-auto w-full max-w-4xl h-full'>
         <div className='flex h-full'>
           {messages ? (
             showPopover ? (
               <MessagePopover key={messages[0].id} append={append} />
             ) : (
               <div
-                className='flex min-w-0 flex-1 flex-col gap-6 pt-4'
+                className='flex min-w-0 flex-1 flex-col gap-6 pt-4 pb-4'
                 key='messages-list'
               >
                 {messages.map((message: MessageType) => {
@@ -71,7 +71,7 @@ export const Messages = (props: MessagesProps) => {
                     (part) => part.type === 'tool-invocation'
                   )
                   return (
-                    <div key={message.id}>
+                    <div key={message.id} className="w-full">
                       {toolCallPart && (
                         <ToolCallMessageBlock
                           key={message.id + '_' + toolCallPart.type}
@@ -100,8 +100,8 @@ export const Messages = (props: MessagesProps) => {
                 })}
 
                 {isSendingMessage && (
-                  <div className='flex justify-start'>
-                    <Ellipsis size={24} className='animate-pulse' />
+                  <div className='flex justify-start px-4 md:px-0'>
+                    <Ellipsis size={24} className='animate-pulse text-white' />
                   </div>
                 )}
 
@@ -109,12 +109,12 @@ export const Messages = (props: MessagesProps) => {
               </div>
             )
           ) : (
-            <div className='flex min-w-0 flex-1 flex-col justify-center items-center h-full'>
+            <div className='flex min-w-0 flex-1 flex-col justify-center items-center h-full px-4'>
               {status === 'ready' ||
               (isConnected && agents && agents.length === 0) ? (
-                <LoaderCircle className='animate-spin' size={32} />
+                <LoaderCircle className='animate-spin text-white' size={32} />
               ) : (
-                ERROR_CONNECTING
+                <div className="text-white text-center">{ERROR_CONNECTING}</div>
               )}
             </div>
           )}

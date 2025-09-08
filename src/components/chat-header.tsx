@@ -17,72 +17,34 @@ import {
 import { Button } from '@/components/ui/button'
 
 export const ChatHeader = () => {
-  const { agentId } = useAgentContext()
-  const { data: agentData, isLoading } = useAgents()
   const { user, logout } = useAuth()
 
-  const selectedAgent = useMemo(() => {
-    if (!agentData) return null
-
-    if (agentData.length === 0) return null
-
-    return agentData.find((a: { id: string }) => a.id === agentId)
-  }, [agentData, agentId])
-
   return (
-    <>
-      <div className='flex-1 overflow-hidden'>
-        <div className='flex items-center justify-between w-full'>
-          <div className='flex items-center gap-2 w-1/2 overflow-hidden'>
-            <div className='w-full overflow-hidden'>
-              {isLoading ? (
-                <SkeletonLoadBlock className='w-[10em] h-[1em]' />
-              ) : (
-                <div className='text-l font-bold truncate'>
-                  {selectedAgent?.name || 'Personal Agent'}
-                </div>
-              )}
+    <div className='flex items-center justify-end w-full'>
+      {/* User Menu */}
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="ghost" size="sm" className="glass-effect border border-purple-500/30 rounded-lg hover:border-purple-500/50">
+            <User className="h-4 w-4 mr-2" />
+            <span className="text-sm text-white">{user?.name}</span>
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end" className="w-56 glass-effect border border-purple-500/30 bg-black/80">
+          <DropdownMenuLabel>
+            <div className="flex flex-col space-y-1">
+              <p className="text-sm font-medium leading-none text-white">{user?.name}</p>
+              <p className="text-xs leading-none text-white/70">
+                {user?.email}
+              </p>
             </div>
-          </div>
-          <div className='flex items-center gap-2'>
-            {isLoading ? (
-              <LoaderCircle
-                className='w-max h-full px-2 animate-spin'
-                size={17}
-              />
-            ) : (
-              <div className='flex flex-row gap-1'>
-                <ReasoningMessageSwitch data-id={'reasoning-message-switch'}/>
-                <AgentDetailsTrigger data-id={'agent-details-trigger'} isLoading={isLoading} />
-              </div>
-            )}
-            
-            {/* User Menu */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="ml-2">
-                  <User className="h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuLabel>
-                  <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-medium leading-none">{user?.name}</p>
-                    <p className="text-xs leading-none text-muted-foreground">
-                      {user?.email}
-                    </p>
-                  </div>
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={logout} className="text-red-600">
-                  <LogOut className="mr-2 h-4 w-4" />
-                  <span>Log out</span>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-        </div>
-      </div>
-    </>
+          </DropdownMenuLabel>
+          <DropdownMenuSeparator className="bg-white/20" />
+          <DropdownMenuItem onClick={logout} className="text-red-400 hover:text-red-300 hover:bg-red-500/10">
+            <LogOut className="mr-2 h-4 w-4" />
+            <span>Log out</span>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
   )
 }

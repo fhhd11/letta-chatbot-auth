@@ -17,7 +17,8 @@ async function getAgentMessages(
   const { agentId } = result
 
   try {
-    const messages = await client.agents.messages.list(agentId, { limit: 100 })
+    // Получаем только последние 15 сообщений для актуальной истории
+    const messages = await client.agents.messages.list(agentId, { limit: 15 })
 
     const result = filterMessages(messages)
     return NextResponse.json(convertToAiSdkMessage(result))
